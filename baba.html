@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+	<title>B.A.B.A</title>
+	<style>
+		html,
+		body {
+			height: 100%;
+			background-color: pink;
+		}
+
+		body {
+			display: flex;
+			flex-direction: column;
+		}
+
+		h1 {
+			color: white;
+			text-align: center;
+			font-family: 'Playfair Display', serif;
+			font-size: 5rem;
+		}
+
+		.wrapper {
+			margin-left: 20%;
+			margin-right: 20%;
+			flex: 1 0 auto;
+		}
+
+		img {
+			height: 300px;
+			width: 500px;
+			border-radius: 15px;
+			margin: 0;
+		}
+
+		a {
+			margin-top: 20px;
+			margin-left: auto;
+			margin-right: auto;
+			text-decoration: none;
+			font-family: 'Raleway', sans-serif;
+			font-size: 2rem;
+			color: white;
+			text-transform: uppercase;
+			font-weight: 900;
+			background-image: linear-gradient(to top, #fed330 25%, rgba(0, 0, 0, 0) 40%);
+		}
+
+		a:hover {
+			background-image: none;
+			transition-duration: .15s;
+		}
+
+		#shop_line {
+			display: flex;
+			justify-content: space-around;
+		}
+
+		.shop_info {
+			display: flex;
+			flex-direction: column;
+			margin: 60px;
+		}
+
+		.footer {
+			height: 50px;
+			border-top: solid 1px;
+			border-color: white;
+			flex-shrink: 0;
+		}
+
+		/* .footer {
+			position: fixed;
+			border-top: solid 1px;
+			border-color: white;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+		} */
+
+		#copyright p {
+			color: white;
+			text-align: right;
+			margin-right: 20px;
+			font-family: 'Roboto Mono', monospace;
+			font-style: italic;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Hétérogénéité</h1>
+	<div class="wrapper">
+		<div id="shop_line">
+			<div class="shop_info">
+				<img src="https://touteslesbox.fr/wp-content/uploads/2014/12/lecloset-logo-768x423@2x.jpg" alt="lecloset_logo">
+				<a href="https://www.lecloset.fr/">Le Closet</a>
+			</div>
+			<div class="shop_info">
+				<img src="http://www.teampaillettes.com/wp-content/uploads/2015/09/1911132_240632286116521_280133581_o.png" alt="lhabibliotheque_logo">
+				<a href="https://www.lhabibliotheque.com/">L'Habibliothèque</a>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div id="copyright">
+			<p>© bboucher 2019</p>
+		</div>
+	</div>
+</body>
+
+</html>
