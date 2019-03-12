@@ -6,15 +6,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua" rel="stylesheet">
 	<title>Mendeleiev's periodic table</title>
 	<style>
+		html, body {
+			margin: 0;
+			height: 100%;
+		}
+
+		.container {
+			display: flex;
+			width: 60vw;
+			margin: 0 auto;
+		}
+
 		.wrapper {
 			display: grid;
 			grid-gap: 10px;
-			grid-template-columns: repeat(18, minmax(30px, 1fr));
-			grid-template-rows: repeat(9, minmax(30px, 1fr));
-			max-width: 1500px;
-			margin: 1em auto;
+			grid-template-columns: repeat(18, minmax(10px, auto));
+			grid-template-rows: repeat(9, minmax(15%, auto));
+			margin: 0 auto;
+			padding: 0;
+			flex: 1;
+			width: 100%;
 		}
 
 		li {
@@ -28,15 +42,15 @@
 		h2 {
 			font-family: 'Playfair Display', serif;
 			font-weight: 900;
-			font-size: 22px;
-			margin-top: 10px;
-			margin-bottom: 10px;
+			font-size: calc(0.5em + 1vw);
+			margin-top: 30%;
+			margin-bottom: 0%;
 			display: flex;
 			justify-content: center;
 		}
 
 		.nb {
-			font-size: 9px;
+			font-size: calc(0.2em + 0.5vw);
 			position: absolute;
 			bottom: 3%;
 			left: 3%;
@@ -44,7 +58,7 @@
 		}
 
 		.mass {
-			font-size: 8px;
+			font-size: calc(0.2em + 0.3vw);
 			position: absolute;
 			top: 2%;
 			right: 2%;
@@ -55,11 +69,12 @@
 			background-color: white;
 			grid-column: 18;
 			grid-row: 18;
-			transition: all 300ms ease-in-out;
+			transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
 		}
 
 		.element:hover {
 			transform: scale(1.5);
+			z-index: 289;
 		}
 
 		#H {
@@ -717,602 +732,639 @@
 			border-color: gray;
 			color: gray;
 		}
+
+		.photo-wrapper {
+			padding-top: 30px;
+			padding-bottom: 10px;
+			margin-bottom: 20px;
+			display: flex;
+			justify-content: space-around;
+		}
+
+		img {
+			height: 10vw;
+			margin-top: 200px;
+			border-radius: 50%;
+			margin: 0;
+		}
+
+		.home {
+			height: 60vh;
+			background-color: #E1F5FD;
+			margin-bottom: 20px;
+			display: flex;
+		}
+
+		h1 {
+			font-family: 'Inknut Antiqua', serif;
+			font-size: 150px;
+			font-weight: 900;
+			color: #C1E5F6;
+		}
 	</style>
 </head>
 
 <body>
-	<ol class="wrapper">
-		<li id="H" class="element nonmetal">
-			<h2>H</h2>
-			<p class="nb">1</p>
-			<p class="mass">1.007</p>
-		</li>
-		<li id="He" class="element noble_gas">
-			<h2>He</h2>
-			<p class="nb">2</p>
-			<p class="mass">4.002</p>
-		</li>
-		<li id="Li" class="element alkali_metal">
-			<h2>Li</h2>
-			<p class="nb">3</p>
-			<p class="mass">6.941</p>
-		</li>
-		<li id="Be" class="element alkaline_earth_metal">
-			<h2>Be</h2>
-			<p class="nb">4</p>
-			<p class="mass">9.012</p>
-		</li>
-		<li id="B" class="element metalloid">
-			<h2>B</h2>
-			<p class="nb">5</p>
-			<p class="mass">10.81</p>
-		</li>
-		<li id="C" class="element nonmetal">
-			<h2>C</h2>
-			<p class="nb">6</p>
-			<p class="mass">12.01</p>
-		</li>
-		<li id="N" class="element nonmetal">
-			<h2>N</h2>
-			<p class="nb">7</p>
-			<p class="mass">14.00</p>
-		</li>
-		<li id="O" class="element nonmetal">
-			<h2>O</h2>
-			<p class="nb">8</p>
-			<p class="mass">15.99</p>
-		</li>
-		<li id="F" class="element halogen">
-			<h2>F</h2>
-			<p class="nb">9</p>
-			<p class="mass">18.99</p>
-		</li>
-		<li id="Ne" class="element noble_gas">
-			<h2>Ne</h2>
-			<p class="nb">10</p>
-			<p class="mass">20.17</p>
-		</li>
-		<li id="Na" class="element alkali_metal">
-			<h2>Na</h2>
-			<p class="nb">11</p>
-			<p class="mass">22.98</p>
-		</li>
-		<li id="Mg" class="element alkaline_earth_metal">
-			<h2>Mg</h2>
-			<p class="nb">12</p>
-			<p class="mass">24.30</p>
-		</li>
-		<li id="Al" class="element metal">
-			<h2>Al</h2>
-			<p class="nb">13</p>
-			<p class="mass">26.98</p>
-		</li>
-		<li id="Si" class="element metalloid">
-			<h2>Si</h2>
-			<p class="nb">14</p>
-			<p class="mass">28.08</p>
-		</li>
-		<li id="P" class="element nonmetal">
-			<h2>P</h2>
-			<p class="nb">15</p>
-			<p class="mass">30.97</p>
-		</li>
-		<li id="S" class="element nonmetal">
-			<h2>S</h2>
-			<p class="nb">16</p>
-			<p class="mass">32.06</p>
-		</li>
-		<li id="Cl" class="element halogen">
-			<h2>Cl</h2>
-			<p class="nb">17</p>
-			<p class="mass">35.45</p>
-		</li>
-		<li id="Ar" class="element noble_gas">
-			<h2>Ar</h2>
-			<p class="nb">18</p>
-			<p class="mass">39.94</p>
-		</li>
-		<li id="K" class="element alkali_metal">
-			<h2>K</h2>
-			<p class="nb">19</p>
-			<p class="mass">39.09</p>
-		</li>
-		<li id="Ca" class="element alkaline_earth_metal">
-			<h2>Ca</h2>
-			<p class="nb">20</p>
-			<p class="mass">40.07</p>
-		</li>
-		<li id="Sc" class="element transition_metal">
-			<h2>Sc</h2>
-			<p class="nb">21</p>
-			<p class="mass">44.95</p>
-		</li>
-		<li id="Ti" class="element transition_metal">
-			<h2>Ti</h2>
-			<p class="nb">22</p>
-			<p class="mass">47.86</p>
-		</li>
-		<li id="V" class="element transition_metal">
-			<h2>V</h2>
-			<p class="nb">23</p>
-			<p class="mass">50.94</p>
-		</li>
-		<li id="Cr" class="element transition_metal">
-			<h2>Cr</h2>
-			<p class="nb">24</p>
-			<p class="mass">51.99</p>
-		</li>
-		<li id="Mn" class="element transition_metal">
-			<h2>Mn</h2>
-			<p class="nb">25</p>
-			<p class="mass">54.93</p>
-		</li>
-		<li id="Fe" class="element transition_metal">
-			<h2>Fe</h2>
-			<p class="nb">26</p>
-			<p class="mass">55.84</p>
-		</li>
-		<li id="Co" class="element transition_metal">
-			<h2>Co</h2>
-			<p class="nb">27</p>
-			<p class="mass">58.93</p>
-		</li>
-		<li id="Ni" class="element transition_metal">
-			<h2>Ni</h2>
-			<p class="nb">28</p>
-			<p class="mass">58.69</p>
-		</li>
-		<li id="Cu" class="element transition_metal">
-			<h2>Cu</h2>
-			<p class="nb">29</p>
-			<p class="mass">63.54</p>
-		</li>
-		<li id="Zn" class="element transition_metal">
-			<h2>Zn</h2>
-			<p class="nb">30</p>
-			<p class="mass">65.38</p>
-		</li>
-		<li id="Ga" class="element metal">
-			<h2>Ga</h2>
-			<p class="nb">31</p>
-			<p class="mass">69.72</p>
-		</li>
-		<li id="Ge" class="element metalloid">
-			<h2>Ge</h2>
-			<p class="nb">32</p>
-			<p class="mass">72.64</p>
-		</li>
-		<li id="As" class="element metalloid">
-			<h2>As</h2>
-			<p class="nb">33</p>
-			<p class="mass">74.92</p>
-		</li>
-		<li id="Se" class="element nonmetal">
-			<h2>Se</h2>
-			<p class="nb">34</p>
-			<p class="mass">78.96</p>
-		</li>
-		<li id="Br" class="element halogen">
-			<h2>Br</h2>
-			<p class="nb">35</p>
-			<p class="mass">79.90</p>
-		</li>
-		<li id="Kr" class="element noble_gas">
-			<h2>Kr</h2>
-			<p class="nb">36</p>
-			<p class="mass">83.79</p>
-		</li>
-		<li id="Rb" class="element alkali_metal">
-			<h2>Rb</h2>
-			<p class="nb">37</p>
-			<p class="mass">85.46</p>
-		</li>
-		<li id="Sr" class="element alkaline_earth_metal">
-			<h2>Sr</h2>
-			<p class="nb">38</p>
-			<p class="mass">87.62</p>
-		</li>
-		<li id="Y" class="element transition_metal">
-			<h2>Y</h2>
-			<p class="nb">39</p>
-			<p class="mass">88.90</p>
-		</li>
-		<li id="Zr" class="element transition_metal">
-			<h2>Zr</h2>
-			<p class="nb">40</p>
-			<p class="mass">91.22</p>
-		</li>
-		<li id="Nb" class="element transition_metal">
-			<h2>Nb</h2>
-			<p class="nb">41</p>
-			<p class="mass">92.90</p>
-		</li>
-		<li id="Mo" class="element transition_metal">
-			<h2>Mo</h2>
-			<p class="nb">42</p>
-			<p class="mass">95.96</p>
-		</li>
-		<li id="Tc" class="element transition_metal">
-			<h2>Tc</h2>
-			<p class="nb">43</p>
-			<p class="mass">[98]</p>
-		</li>
-		<li id="Ru" class="element transition_metal">
-			<h2>Ru</h2>
-			<p class="nb">44</p>
-			<p class="mass">101.0</p>
-		</li>
-		<li id="Rh" class="element transition_metal">
-			<h2>Rh</h2>
-			<p class="nb">45</p>
-			<p class="mass">102.9</p>
-		</li>
-		<li id="Pd" class="element transition_metal">
-			<h2>Pd</h2>
-			<p class="nb">46</p>
-			<p class="mass">106.4</p>
-		</li>
-		<li id="Ag" class="element transition_metal">
-			<h2>Ag</h2>
-			<p class="nb">47</p>
-			<p class="mass">107.8</p>
-		</li>
-		<li id="Cd" class="element transition_metal">
-			<h2>Cd</h2>
-			<p class="nb">48</p>
-			<p class="mass">112.4</p>
-		</li>
-		<li id="In" class="element metal">
-			<h2>In</h2>
-			<p class="nb">49</p>
-			<p class="mass">114.8</p>
-		</li>
-		<li id="Sn" class="element metal">
-			<h2>Sn</h2>
-			<p class="nb">50</p>
-			<p class="mass">118.7</p>
-		</li>
-		<li id="Sb" class="element metalloid">
-			<h2>Sb</h2>
-			<p class="nb">51</p>
-			<p class="mass">121.7</p>
-		</li>
-		<li id="Te" class="element metalloid">
-			<h2>Te</h2>
-			<p class="nb">52</p>
-			<p class="mass">127.6</p>
-		</li>
-		<li id="I" class="element halogen">
-			<h2>I</h2>
-			<p class="nb">53</p>
-			<p class="mass">126.9</p>
-		</li>
-		<li id="Xe" class="element noble_gas">
-			<h2>Xe</h2>
-			<p class="nb">54</p>
-			<p class="mass">131.2</p>
-		</li>
-		<li id="Cs" class="element alkali_metal">
-			<h2>Cs</h2>
-			<p class="nb">55</p>
-			<p class="mass">132.9</p>
-		</li>
-		<li id="Ba" class="element alkaline_earth_metal">
-			<h2>Ba</h2>
-			<p class="nb">56</p>
-			<p class="mass">137.3</p>
-		</li>
-		<li id="La" class="element lanthanoid">
-			<h2>La</h2>
-			<p class="nb">57</p>
-			<p class="mass">138.9</p>
-		</li>
-		<li id="Ce" class="element lanthanoid">
-			<h2>Ce</h2>
-			<p class="nb">58</p>
-			<p class="mass">140.1</p>
-		</li>
-		<li id="Pr" class="element lanthanoid">
-			<h2>Pr</h2>
-			<p class="nb">59</p>
-			<p class="mass">140.9</p>
-		</li>
-		<li id="Nd" class="element lanthanoid">
-			<h2>Nd</h2>
-			<p class="nb">60</p>
-			<p class="mass">144.2</p>
-		</li>
-		<li id="Pm" class="element lanthanoid">
-			<h2>Pm</h2>
-			<p class="nb">61</p>
-			<p class="mass">[145]</p>
-		</li>
-		<li id="Sm" class="element lanthanoid">
-			<h2>Sm</h2>
-			<p class="nb">62</p>
-			<p class="mass">150.3</p>
-		</li>
-		<li id="Eu" class="element lanthanoid">
-			<h2>Eu</h2>
-			<p class="nb">63</p>
-			<p class="mass">151.9</p>
-		</li>
-		<li id="Gd" class="element lanthanoid">
-			<h2>Gd</h2>
-			<p class="nb">64</p>
-			<p class="mass">157.2</p>
-		</li>
-		<li id="Tb" class="element lanthanoid">
-			<h2>Tb</h2>
-			<p class="nb">65</p>
-			<p class="mass">158.9</p>
-		</li>
-		<li id="Dy" class="element lanthanoid">
-			<h2>Dy</h2>
-			<p class="nb">66</p>
-			<p class="mass">162.5</p>
-		</li>
-		<li id="Ho" class="element lanthanoid">
-			<h2>Ho</h2>
-			<p class="nb">67</p>
-			<p class="mass">164.9</p>
-		</li>
-		<li id="Er" class="element lanthanoid">
-			<h2>Er</h2>
-			<p class="nb">68</p>
-			<p class="mass">167.2</p>
-		</li>
-		<li id="Tm" class="element lanthanoid">
-			<h2>Tm</h2>
-			<p class="nb">69</p>
-			<p class="mass">168.9</p>
-		</li>
-		<li id="Yb" class="element lanthanoid">
-			<h2>Yb</h2>
-			<p class="nb">70</p>
-			<p class="mass">173.0</p>
-		</li>
-		<li id="Lu" class="element lanthanoid">
-			<h2>Lu</h2>
-			<p class="nb">71</p>
-			<p class="mass">174.9</p>
-		</li>
-		<li id="Hf" class="element transition_metal">
-			<h2>Hf</h2>
-			<p class="nb">72</p>
-			<p class="mass">178.4</p>
-		</li>
-		<li id="Ta" class="element transition_metal">
-			<h2>Ta</h2>
-			<p class="nb">73</p>
-			<p class="mass">180.9</p>
-		</li>
-		<li id="W" class="element transition_metal">
-			<h2>W</h2>
-			<p class="nb">74</p>
-			<p class="mass">183.8</p>
-		</li>
-		<li id="Re" class="element transition_metal">
-			<h2>Re</h2>
-			<p class="nb">75</p>
-			<p class="mass">186.2</p>
-		</li>
-		<li id="Os" class="element transition_metal">
-			<h2>Os</h2>
-			<p class="nb">76</p>
-			<p class="mass">190.2</p>
-		</li>
-		<li id="Ir" class="element transition_metal">
-			<h2>Ir</h2>
-			<p class="nb">77</p>
-			<p class="mass">192.2</p>
-		</li>
-		<li id="Pt" class="element transition_metal">
-			<h2>Pt</h2>
-			<p class="nb">78</p>
-			<p class="mass">195.0</p>
-		</li>
-		<li id="Au" class="element transition_metal">
-			<h2>Au</h2>
-			<p class="nb">79</p>
-			<p class="mass">196.9</p>
-		</li>
-		<li id="Hg" class="element transition_metal">
-			<h2>Hg</h2>
-			<p class="nb">80</p>
-			<p class="mass">200.5</p>
-		</li>
-		<li id="Tl" class="element metal">
-			<h2>Tl</h2>
-			<p class="nb">81</p>
-			<p class="mass">204.3</p>
-		</li>
-		<li id="Pb" class="element metal">
-			<h2>Pb</h2>
-			<p class="nb">82</p>
-			<p class="mass">207.2</p>
-		</li>
-		<li id="Bi" class="element metal">
-			<h2>Bi</h2>
-			<p class="nb">83</p>
-			<p class="mass">208.9</p>
-		</li>
-		<li id="Po" class="element metalloid">
-			<h2>Po</h2>
-			<p class="nb">84</p>
-			<p class="mass">[209]</p>
-		</li>
-		<li id="At" class="element halogen">
-			<h2>At</h2>
-			<p class="nb">85</p>
-			<p class="mass">[210]</p>
-		</li>
-		<li id="Rn" class="element noble_gas">
-			<h2>Rn</h2>
-			<p class="nb">86</p>
-			<p class="mass">[222]</p>
-		</li>
-		<li id="Fr" class="element alkali_metal">
-			<h2>Fr</h2>
-			<p class="nb">87</p>
-			<p class="mass">[223]</p>
-		</li>
-		<li id="Ra" class="element alkaline_earth_metal">
-			<h2>Ra</h2>
-			<p class="nb">88</p>
-			<p class="mass">[226]</p>
-		</li>
-		<li id="Ac" class="element actinoid">
-			<h2>Ac</h2>
-			<p class="nb">89</p>
-			<p class="mass">[227]</p>
-		</li>
-		<li id="Th" class="element actinoid">
-			<h2>Th</h2>
-			<p class="nb">90</p>
-			<p class="mass">232.0</p>
-		</li>
-		<li id="Pa" class="element actinoid">
-			<h2>Pa</h2>
-			<p class="nb">91</p>
-			<p class="mass">231.0</p>
-		</li>
-		<li id="U" class="element actinoid">
-			<h2>U</h2>
-			<p class="nb">92</p>
-			<p class="mass">238.0</p>
-		</li>
-		<li id="Np" class="element actinoid">
-			<h2>Np</h2>
-			<p class="nb">93</p>
-			<p class="mass">[237]</p>
-		</li>
-		<li id="Pu" class="element actinoid">
-			<h2>Pu</h2>
-			<p class="nb">94</p>
-			<p class="mass">[244]</p>
-		</li>
-		<li id="Am" class="element actinoid">
-			<h2>Am</h2>
-			<p class="nb">95</p>
-			<p class="mass">[243]</p>
-		</li>
-		<li id="Cm" class="element actinoid">
-			<h2>Cm</h2>
-			<p class="nb">96</p>
-			<p class="mass">[247]</p>
-		</li>
-		<li id="Bk" class="element actinoid">
-			<h2>Bk</h2>
-			<p class="nb">97</p>
-			<p class="mass">[247]</p>
-		</li>
-		<li id="Cf" class="element actinoid">
-			<h2>Cf</h2>
-			<p class="nb">98</p>
-			<p class="mass">[251]</p>
-		</li>
-		<li id="Es" class="element actinoid">
-			<h2>Es</h2>
-			<p class="nb">99</p>
-			<p class="mass">[252]</p>
-		</li>
-		<li id="Fm" class="element actinoid">
-			<h2>Fm</h2>
-			<p class="nb">100</p>
-			<p class="mass">[257]</p>
-		</li>
-		<li id="Md" class="element actinoid">
-			<h2>Md</h2>
-			<p class="nb">101</p>
-			<p class="mass">[258]</p>
-		</li>
-		<li id="No" class="element actinoid">
-			<h2>No</h2>
-			<p class="nb">102</p>
-			<p class="mass">[259]</p>
-		</li>
-		<li id="Lr" class="element transition_metal">
-			<h2>Lr</h2>
-			<p class="nb">103</p>
-			<p class="mass">[262]</p>
-		</li>
-		<li id="Rf" class="element transition_metal">
-			<h2>Rf</h2>
-			<p class="nb">104</p>
-			<p class="mass">[267]</p>
-		</li>
-		<li id="Db" class="element transition_metal">
-			<h2>Db</h2>
-			<p class="nb">105</p>
-			<p class="mass">[268]</p>
-		</li>
-		<li id="Sg" class="element transition_metal">
-			<h2>Sg</h2>
-			<p class="nb">106</p>
-			<p class="mass">[271]</p>
-		</li>
-		<li id="Bh" class="element transition_metal">
-			<h2>Bh</h2>
-			<p class="nb">107</p>
-			<p class="mass">[272]</p>
-		</li>
-		<li id="Hs" class="element transition_metal">
-			<h2>Hs</h2>
-			<p class="nb">108</p>
-			<p class="mass">[270]</p>
-		</li>
-		<li id="Mt" class="element transition_metal">
-			<h2>Mt</h2>
-			<p class="nb">109</p>
-			<p class="mass">[276]</p>
-		</li>
-		<li id="Ds" class="element transition_metal">
-			<h2>Ds</h2>
-			<p class="nb">110</p>
-			<p class="mass">[281]</p>
-		</li>
-		<li id="Rg" class="element transition_metal">
-			<h2>Rg</h2>
-			<p class="nb">111</p>
-			<p class="mass">[280]</p>
-		</li>
-		<li id="Cn" class="element transition_metal">
-			<h2>Cn</h2>
-			<p class="nb">112</p>
-			<p class="mass">[285]</p>
-		</li>
-		<li id="Nh" class="element post-transition_metal">
-			<h2>Nh</h2>
-			<p class="nb">113</p>
-			<p class="mass">[284]</p>
-		</li>
-		<li id="Fl" class="element post-transition_metal">
-			<h2>Fl</h2>
-			<p class="nb">114</p>
-			<p class="mass">[289]</p>
-		</li>
-		<li id="Mc" class="element post-transition_metal">
-			<h2>Mc</h2>
-			<p class="nb">115</p>
-			<p class="mass">[288]</p>
-		</li>
-		<li id="Lv" class="element post-transition_metal">
-			<h2>Lv</h2>
-			<p class="nb">116</p>
-			<p class="mass">[293]</p>
-		</li>
-		<li id="Ts" class="element post-transition_metal">
-			<h2>Ts</h2>
-			<p class="nb">117</p>
-			<p class="mass">[294]</p>
-		</li>
-		<li id="Og" class="element noble_gas">
-			<h2>Og</h2>
-			<p class="nb">118</p>
-			<p class="mass">[294]</p>
-		</li>
-	</ol>
+	<div class="home">
+		<h1>Mendeleiev's periodic table</h1>
+		<!-- <div class="photo-wrapper">
+			<img src="https://i.postimg.cc/nzW82dDj/kisspng-dmitri-mendeleev-scientist-dimitri-mendeleev-chemi-float.png" alt="">
+		</div> -->
+	</div>
+	<div class="container">
+		<ol class="wrapper">
+			<li id="H" class="element nonmetal">
+				<h2>H</h2>
+				<p class="nb">1</p>
+				<p class="mass">1.007</p>
+			</li>
+			<li id="He" class="element noble_gas">
+				<h2>He</h2>
+				<p class="nb">2</p>
+				<p class="mass">4.002</p>
+			</li>
+			<li id="Li" class="element alkali_metal">
+				<h2>Li</h2>
+				<p class="nb">3</p>
+				<p class="mass">6.941</p>
+			</li>
+			<li id="Be" class="element alkaline_earth_metal">
+				<h2>Be</h2>
+				<p class="nb">4</p>
+				<p class="mass">9.012</p>
+			</li>
+			<li id="B" class="element metalloid">
+				<h2>B</h2>
+				<p class="nb">5</p>
+				<p class="mass">10.81</p>
+			</li>
+			<li id="C" class="element nonmetal">
+				<h2>C</h2>
+				<p class="nb">6</p>
+				<p class="mass">12.01</p>
+			</li>
+			<li id="N" class="element nonmetal">
+				<h2>N</h2>
+				<p class="nb">7</p>
+				<p class="mass">14.00</p>
+			</li>
+			<li id="O" class="element nonmetal">
+				<h2>O</h2>
+				<p class="nb">8</p>
+				<p class="mass">15.99</p>
+			</li>
+			<li id="F" class="element halogen">
+				<h2>F</h2>
+				<p class="nb">9</p>
+				<p class="mass">18.99</p>
+			</li>
+			<li id="Ne" class="element noble_gas">
+				<h2>Ne</h2>
+				<p class="nb">10</p>
+				<p class="mass">20.17</p>
+			</li>
+			<li id="Na" class="element alkali_metal">
+				<h2>Na</h2>
+				<p class="nb">11</p>
+				<p class="mass">22.98</p>
+			</li>
+			<li id="Mg" class="element alkaline_earth_metal">
+				<h2>Mg</h2>
+				<p class="nb">12</p>
+				<p class="mass">24.30</p>
+			</li>
+			<li id="Al" class="element metal">
+				<h2>Al</h2>
+				<p class="nb">13</p>
+				<p class="mass">26.98</p>
+			</li>
+			<li id="Si" class="element metalloid">
+				<h2>Si</h2>
+				<p class="nb">14</p>
+				<p class="mass">28.08</p>
+			</li>
+			<li id="P" class="element nonmetal">
+				<h2>P</h2>
+				<p class="nb">15</p>
+				<p class="mass">30.97</p>
+			</li>
+			<li id="S" class="element nonmetal">
+				<h2>S</h2>
+				<p class="nb">16</p>
+				<p class="mass">32.06</p>
+			</li>
+			<li id="Cl" class="element halogen">
+				<h2>Cl</h2>
+				<p class="nb">17</p>
+				<p class="mass">35.45</p>
+			</li>
+			<li id="Ar" class="element noble_gas">
+				<h2>Ar</h2>
+				<p class="nb">18</p>
+				<p class="mass">39.94</p>
+			</li>
+			<li id="K" class="element alkali_metal">
+				<h2>K</h2>
+				<p class="nb">19</p>
+				<p class="mass">39.09</p>
+			</li>
+			<li id="Ca" class="element alkaline_earth_metal">
+				<h2>Ca</h2>
+				<p class="nb">20</p>
+				<p class="mass">40.07</p>
+			</li>
+			<li id="Sc" class="element transition_metal">
+				<h2>Sc</h2>
+				<p class="nb">21</p>
+				<p class="mass">44.95</p>
+			</li>
+			<li id="Ti" class="element transition_metal">
+				<h2>Ti</h2>
+				<p class="nb">22</p>
+				<p class="mass">47.86</p>
+			</li>
+			<li id="V" class="element transition_metal">
+				<h2>V</h2>
+				<p class="nb">23</p>
+				<p class="mass">50.94</p>
+			</li>
+			<li id="Cr" class="element transition_metal">
+				<h2>Cr</h2>
+				<p class="nb">24</p>
+				<p class="mass">51.99</p>
+			</li>
+			<li id="Mn" class="element transition_metal">
+				<h2>Mn</h2>
+				<p class="nb">25</p>
+				<p class="mass">54.93</p>
+			</li>
+			<li id="Fe" class="element transition_metal">
+				<h2>Fe</h2>
+				<p class="nb">26</p>
+				<p class="mass">55.84</p>
+			</li>
+			<li id="Co" class="element transition_metal">
+				<h2>Co</h2>
+				<p class="nb">27</p>
+				<p class="mass">58.93</p>
+			</li>
+			<li id="Ni" class="element transition_metal">
+				<h2>Ni</h2>
+				<p class="nb">28</p>
+				<p class="mass">58.69</p>
+			</li>
+			<li id="Cu" class="element transition_metal">
+				<h2>Cu</h2>
+				<p class="nb">29</p>
+				<p class="mass">63.54</p>
+			</li>
+			<li id="Zn" class="element transition_metal">
+				<h2>Zn</h2>
+				<p class="nb">30</p>
+				<p class="mass">65.38</p>
+			</li>
+			<li id="Ga" class="element metal">
+				<h2>Ga</h2>
+				<p class="nb">31</p>
+				<p class="mass">69.72</p>
+			</li>
+			<li id="Ge" class="element metalloid">
+				<h2>Ge</h2>
+				<p class="nb">32</p>
+				<p class="mass">72.64</p>
+			</li>
+			<li id="As" class="element metalloid">
+				<h2>As</h2>
+				<p class="nb">33</p>
+				<p class="mass">74.92</p>
+			</li>
+			<li id="Se" class="element nonmetal">
+				<h2>Se</h2>
+				<p class="nb">34</p>
+				<p class="mass">78.96</p>
+			</li>
+			<li id="Br" class="element halogen">
+				<h2>Br</h2>
+				<p class="nb">35</p>
+				<p class="mass">79.90</p>
+			</li>
+			<li id="Kr" class="element noble_gas">
+				<h2>Kr</h2>
+				<p class="nb">36</p>
+				<p class="mass">83.79</p>
+			</li>
+			<li id="Rb" class="element alkali_metal">
+				<h2>Rb</h2>
+				<p class="nb">37</p>
+				<p class="mass">85.46</p>
+			</li>
+			<li id="Sr" class="element alkaline_earth_metal">
+				<h2>Sr</h2>
+				<p class="nb">38</p>
+				<p class="mass">87.62</p>
+			</li>
+			<li id="Y" class="element transition_metal">
+				<h2>Y</h2>
+				<p class="nb">39</p>
+				<p class="mass">88.90</p>
+			</li>
+			<li id="Zr" class="element transition_metal">
+				<h2>Zr</h2>
+				<p class="nb">40</p>
+				<p class="mass">91.22</p>
+			</li>
+			<li id="Nb" class="element transition_metal">
+				<h2>Nb</h2>
+				<p class="nb">41</p>
+				<p class="mass">92.90</p>
+			</li>
+			<li id="Mo" class="element transition_metal">
+				<h2>Mo</h2>
+				<p class="nb">42</p>
+				<p class="mass">95.96</p>
+			</li>
+			<li id="Tc" class="element transition_metal">
+				<h2>Tc</h2>
+				<p class="nb">43</p>
+				<p class="mass">[98]</p>
+			</li>
+			<li id="Ru" class="element transition_metal">
+				<h2>Ru</h2>
+				<p class="nb">44</p>
+				<p class="mass">101.0</p>
+			</li>
+			<li id="Rh" class="element transition_metal">
+				<h2>Rh</h2>
+				<p class="nb">45</p>
+				<p class="mass">102.9</p>
+			</li>
+			<li id="Pd" class="element transition_metal">
+				<h2>Pd</h2>
+				<p class="nb">46</p>
+				<p class="mass">106.4</p>
+			</li>
+			<li id="Ag" class="element transition_metal">
+				<h2>Ag</h2>
+				<p class="nb">47</p>
+				<p class="mass">107.8</p>
+			</li>
+			<li id="Cd" class="element transition_metal">
+				<h2>Cd</h2>
+				<p class="nb">48</p>
+				<p class="mass">112.4</p>
+			</li>
+			<li id="In" class="element metal">
+				<h2>In</h2>
+				<p class="nb">49</p>
+				<p class="mass">114.8</p>
+			</li>
+			<li id="Sn" class="element metal">
+				<h2>Sn</h2>
+				<p class="nb">50</p>
+				<p class="mass">118.7</p>
+			</li>
+			<li id="Sb" class="element metalloid">
+				<h2>Sb</h2>
+				<p class="nb">51</p>
+				<p class="mass">121.7</p>
+			</li>
+			<li id="Te" class="element metalloid">
+				<h2>Te</h2>
+				<p class="nb">52</p>
+				<p class="mass">127.6</p>
+			</li>
+			<li id="I" class="element halogen">
+				<h2>I</h2>
+				<p class="nb">53</p>
+				<p class="mass">126.9</p>
+			</li>
+			<li id="Xe" class="element noble_gas">
+				<h2>Xe</h2>
+				<p class="nb">54</p>
+				<p class="mass">131.2</p>
+			</li>
+			<li id="Cs" class="element alkali_metal">
+				<h2>Cs</h2>
+				<p class="nb">55</p>
+				<p class="mass">132.9</p>
+			</li>
+			<li id="Ba" class="element alkaline_earth_metal">
+				<h2>Ba</h2>
+				<p class="nb">56</p>
+				<p class="mass">137.3</p>
+			</li>
+			<li id="La" class="element lanthanoid">
+				<h2>La</h2>
+				<p class="nb">57</p>
+				<p class="mass">138.9</p>
+			</li>
+			<li id="Ce" class="element lanthanoid">
+				<h2>Ce</h2>
+				<p class="nb">58</p>
+				<p class="mass">140.1</p>
+			</li>
+			<li id="Pr" class="element lanthanoid">
+				<h2>Pr</h2>
+				<p class="nb">59</p>
+				<p class="mass">140.9</p>
+			</li>
+			<li id="Nd" class="element lanthanoid">
+				<h2>Nd</h2>
+				<p class="nb">60</p>
+				<p class="mass">144.2</p>
+			</li>
+			<li id="Pm" class="element lanthanoid">
+				<h2>Pm</h2>
+				<p class="nb">61</p>
+				<p class="mass">[145]</p>
+			</li>
+			<li id="Sm" class="element lanthanoid">
+				<h2>Sm</h2>
+				<p class="nb">62</p>
+				<p class="mass">150.3</p>
+			</li>
+			<li id="Eu" class="element lanthanoid">
+				<h2>Eu</h2>
+				<p class="nb">63</p>
+				<p class="mass">151.9</p>
+			</li>
+			<li id="Gd" class="element lanthanoid">
+				<h2>Gd</h2>
+				<p class="nb">64</p>
+				<p class="mass">157.2</p>
+			</li>
+			<li id="Tb" class="element lanthanoid">
+				<h2>Tb</h2>
+				<p class="nb">65</p>
+				<p class="mass">158.9</p>
+			</li>
+			<li id="Dy" class="element lanthanoid">
+				<h2>Dy</h2>
+				<p class="nb">66</p>
+				<p class="mass">162.5</p>
+			</li>
+			<li id="Ho" class="element lanthanoid">
+				<h2>Ho</h2>
+				<p class="nb">67</p>
+				<p class="mass">164.9</p>
+			</li>
+			<li id="Er" class="element lanthanoid">
+				<h2>Er</h2>
+				<p class="nb">68</p>
+				<p class="mass">167.2</p>
+			</li>
+			<li id="Tm" class="element lanthanoid">
+				<h2>Tm</h2>
+				<p class="nb">69</p>
+				<p class="mass">168.9</p>
+			</li>
+			<li id="Yb" class="element lanthanoid">
+				<h2>Yb</h2>
+				<p class="nb">70</p>
+				<p class="mass">173.0</p>
+			</li>
+			<li id="Lu" class="element lanthanoid">
+				<h2>Lu</h2>
+				<p class="nb">71</p>
+				<p class="mass">174.9</p>
+			</li>
+			<li id="Hf" class="element transition_metal">
+				<h2>Hf</h2>
+				<p class="nb">72</p>
+				<p class="mass">178.4</p>
+			</li>
+			<li id="Ta" class="element transition_metal">
+				<h2>Ta</h2>
+				<p class="nb">73</p>
+				<p class="mass">180.9</p>
+			</li>
+			<li id="W" class="element transition_metal">
+				<h2>W</h2>
+				<p class="nb">74</p>
+				<p class="mass">183.8</p>
+			</li>
+			<li id="Re" class="element transition_metal">
+				<h2>Re</h2>
+				<p class="nb">75</p>
+				<p class="mass">186.2</p>
+			</li>
+			<li id="Os" class="element transition_metal">
+				<h2>Os</h2>
+				<p class="nb">76</p>
+				<p class="mass">190.2</p>
+			</li>
+			<li id="Ir" class="element transition_metal">
+				<h2>Ir</h2>
+				<p class="nb">77</p>
+				<p class="mass">192.2</p>
+			</li>
+			<li id="Pt" class="element transition_metal">
+				<h2>Pt</h2>
+				<p class="nb">78</p>
+				<p class="mass">195.0</p>
+			</li>
+			<li id="Au" class="element transition_metal">
+				<h2>Au</h2>
+				<p class="nb">79</p>
+				<p class="mass">196.9</p>
+			</li>
+			<li id="Hg" class="element transition_metal">
+				<h2>Hg</h2>
+				<p class="nb">80</p>
+				<p class="mass">200.5</p>
+			</li>
+			<li id="Tl" class="element metal">
+				<h2>Tl</h2>
+				<p class="nb">81</p>
+				<p class="mass">204.3</p>
+			</li>
+			<li id="Pb" class="element metal">
+				<h2>Pb</h2>
+				<p class="nb">82</p>
+				<p class="mass">207.2</p>
+			</li>
+			<li id="Bi" class="element metal">
+				<h2>Bi</h2>
+				<p class="nb">83</p>
+				<p class="mass">208.9</p>
+			</li>
+			<li id="Po" class="element metalloid">
+				<h2>Po</h2>
+				<p class="nb">84</p>
+				<p class="mass">[209]</p>
+			</li>
+			<li id="At" class="element halogen">
+				<h2>At</h2>
+				<p class="nb">85</p>
+				<p class="mass">[210]</p>
+			</li>
+			<li id="Rn" class="element noble_gas">
+				<h2>Rn</h2>
+				<p class="nb">86</p>
+				<p class="mass">[222]</p>
+			</li>
+			<li id="Fr" class="element alkali_metal">
+				<h2>Fr</h2>
+				<p class="nb">87</p>
+				<p class="mass">[223]</p>
+			</li>
+			<li id="Ra" class="element alkaline_earth_metal">
+				<h2>Ra</h2>
+				<p class="nb">88</p>
+				<p class="mass">[226]</p>
+			</li>
+			<li id="Ac" class="element actinoid">
+				<h2>Ac</h2>
+				<p class="nb">89</p>
+				<p class="mass">[227]</p>
+			</li>
+			<li id="Th" class="element actinoid">
+				<h2>Th</h2>
+				<p class="nb">90</p>
+				<p class="mass">232.0</p>
+			</li>
+			<li id="Pa" class="element actinoid">
+				<h2>Pa</h2>
+				<p class="nb">91</p>
+				<p class="mass">231.0</p>
+			</li>
+			<li id="U" class="element actinoid">
+				<h2>U</h2>
+				<p class="nb">92</p>
+				<p class="mass">238.0</p>
+			</li>
+			<li id="Np" class="element actinoid">
+				<h2>Np</h2>
+				<p class="nb">93</p>
+				<p class="mass">[237]</p>
+			</li>
+			<li id="Pu" class="element actinoid">
+				<h2>Pu</h2>
+				<p class="nb">94</p>
+				<p class="mass">[244]</p>
+			</li>
+			<li id="Am" class="element actinoid">
+				<h2>Am</h2>
+				<p class="nb">95</p>
+				<p class="mass">[243]</p>
+			</li>
+			<li id="Cm" class="element actinoid">
+				<h2>Cm</h2>
+				<p class="nb">96</p>
+				<p class="mass">[247]</p>
+			</li>
+			<li id="Bk" class="element actinoid">
+				<h2>Bk</h2>
+				<p class="nb">97</p>
+				<p class="mass">[247]</p>
+			</li>
+			<li id="Cf" class="element actinoid">
+				<h2>Cf</h2>
+				<p class="nb">98</p>
+				<p class="mass">[251]</p>
+			</li>
+			<li id="Es" class="element actinoid">
+				<h2>Es</h2>
+				<p class="nb">99</p>
+				<p class="mass">[252]</p>
+			</li>
+			<li id="Fm" class="element actinoid">
+				<h2>Fm</h2>
+				<p class="nb">100</p>
+				<p class="mass">[257]</p>
+			</li>
+			<li id="Md" class="element actinoid">
+				<h2>Md</h2>
+				<p class="nb">101</p>
+				<p class="mass">[258]</p>
+			</li>
+			<li id="No" class="element actinoid">
+				<h2>No</h2>
+				<p class="nb">102</p>
+				<p class="mass">[259]</p>
+			</li>
+			<li id="Lr" class="element transition_metal">
+				<h2>Lr</h2>
+				<p class="nb">103</p>
+				<p class="mass">[262]</p>
+			</li>
+			<li id="Rf" class="element transition_metal">
+				<h2>Rf</h2>
+				<p class="nb">104</p>
+				<p class="mass">[267]</p>
+			</li>
+			<li id="Db" class="element transition_metal">
+				<h2>Db</h2>
+				<p class="nb">105</p>
+				<p class="mass">[268]</p>
+			</li>
+			<li id="Sg" class="element transition_metal">
+				<h2>Sg</h2>
+				<p class="nb">106</p>
+				<p class="mass">[271]</p>
+			</li>
+			<li id="Bh" class="element transition_metal">
+				<h2>Bh</h2>
+				<p class="nb">107</p>
+				<p class="mass">[272]</p>
+			</li>
+			<li id="Hs" class="element transition_metal">
+				<h2>Hs</h2>
+				<p class="nb">108</p>
+				<p class="mass">[270]</p>
+			</li>
+			<li id="Mt" class="element transition_metal">
+				<h2>Mt</h2>
+				<p class="nb">109</p>
+				<p class="mass">[276]</p>
+			</li>
+			<li id="Ds" class="element transition_metal">
+				<h2>Ds</h2>
+				<p class="nb">110</p>
+				<p class="mass">[281]</p>
+			</li>
+			<li id="Rg" class="element transition_metal">
+				<h2>Rg</h2>
+				<p class="nb">111</p>
+				<p class="mass">[280]</p>
+			</li>
+			<li id="Cn" class="element transition_metal">
+				<h2>Cn</h2>
+				<p class="nb">112</p>
+				<p class="mass">[285]</p>
+			</li>
+			<li id="Nh" class="element post-transition_metal">
+				<h2>Nh</h2>
+				<p class="nb">113</p>
+				<p class="mass">[284]</p>
+			</li>
+			<li id="Fl" class="element post-transition_metal">
+				<h2>Fl</h2>
+				<p class="nb">114</p>
+				<p class="mass">[289]</p>
+			</li>
+			<li id="Mc" class="element post-transition_metal">
+				<h2>Mc</h2>
+				<p class="nb">115</p>
+				<p class="mass">[288]</p>
+			</li>
+			<li id="Lv" class="element post-transition_metal">
+				<h2>Lv</h2>
+				<p class="nb">116</p>
+				<p class="mass">[293]</p>
+			</li>
+			<li id="Ts" class="element post-transition_metal">
+				<h2>Ts</h2>
+				<p class="nb">117</p>
+				<p class="mass">[294]</p>
+			</li>
+			<li id="Og" class="element noble_gas">
+				<h2>Og</h2>
+				<p class="nb">118</p>
+				<p class="mass">[294]</p>
+			</li>
+		</ol>
+	</div>
 </body>
 
 </html>
