@@ -107,7 +107,6 @@ ul {
 	transition-duration: 1s;
 }
 
-
 li ul li:hover {
 	background-color: rgb(255, 248, 241);
 }
