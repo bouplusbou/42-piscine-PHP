@@ -5,89 +5,41 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Menu</title>
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Montserrat');
-
-		html {
-			background-color: #FFF0F5;
-		}
-
-		a {
-			text-decoration: none;
-			color: rgb(107, 107, 107);
-		}
-
-		nav {
-			list-style: none;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin-top: 200px;
-			font-family: 'Montserrat', sans-serif;
-			font-weight: 900;
-		}
-
-
-		li:first-child {
-			border-top: none;
-		}
-
-		#choose {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			position: absolute;
-			width: 230px;
-			height: 30px;
-			background-color: #fff;
-			border-radius: 20px;
-			padding: 15px 0px;
-			box-shadow: 0px 10px 20px rgb(248, 222, 222);
-			transition-timing-function: ease;
-			transition-duration: 1s;
-		}
-
-		#choose:hover {
-			color: white;
-			background-color: #FF4948;
-		}
-
-		ul li {
-			text-align: center;
-			padding: 20px 10px;
-			border-top: 1px solid rgb(243, 233, 233);
-			transition-timing-function: ease;
-			transition-duration: 1s;
-		}
-
-		ul {
-			list-style: none;
-			position: relative;
-			top: 70px;
-			width: 230px;
-			background-color: #fff;
-			border-radius: 25px;
-			padding: 0px;
-			box-shadow: 0px 10px 20px rgb(248, 222, 222);
-		}
-
-
-		ul li:hover {
-			background-color: rgb(255, 248, 241);
-		}
-	</style>
+	<link rel="stylesheet" href="menu.css" style="text/css">
+	<title>Menu SNCF</title>
 </head>
 
 <body>
 	<nav role="menu">
-		<li><a href="#" id="choose">Choose</a>
+		<li class="menu_li"><a href="#" id="sandwichs" class="menu_a">Sandwichs</a>
 			<ul id="dropdown">
-				<li><a href="#">lol</a></li>
-				<li><a href="#">lol</a></li>
-				<li><a href="#">lol</a></li>
-				<li><a href="#">lol</a></li>
-				<li><a href="#">lol</a></li>
+				<li id="purple"><a href="#">Ultimate vegan BLT</a></li>
+				<li id="blue"><a href="#">Vegan cream cheese</a></li>
+				<li id="green"><a href="#">Avocado Tempeh</a></li>
+				<li id="yellow"><a href="#">Roasted veggies</a></li>
+				<li id="orange"><a href="#">Pull Jackfruit BBQ</a></li>
+			</ul>
+		</li>
+		<li class="menu_li"><a href="#" id="salads" class="menu_a">Salads</a>
+			<ul id="dropdown">
+				<li id="purple"><a href="#">Kale power salad</a></li>
+				<li id="blue"><a href="#">Gado-Gado salad</a></li>
+				<li id="green"><a href="#">Roasted butternut squash</a></li>
+				<li id="yellow"><a href="#">Cranberry cilantro quinoa</a></li>
+			</ul>
+		</li>
+		<li class="menu_li"><a href="#" id="desserts" class="menu_a">Desserts</a>
+			<ul id="dropdown">
+				<li id="purple"><a href="#">Cheesecake</a></li>
+				<li id="blue"><a href="#">Cookie</a></li>
+				<li id="green"><a href="#">Brownie</a></li>
+			</ul>
+		</li>
+		<li class="menu_li"><a href="#" id="drinks" class="menu_a">Drinks</a>
+			<ul id="dropdown">
+				<li id="purple"><a href="#">Bap Bap - IPA</a></li>
+				<li id="blue"><a href="#">Lemonade</a></li>
+				<li id="green"><a href="#">Iced Tea</a></li>
 			</ul>
 		</li>
 	</nav>

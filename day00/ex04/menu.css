@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+html {
+	background-color: #FFF0F5;
+}
+
+nav {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 200px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 900;
+}
+
+.menu_li {
+	height: 30px;
+}
+
+.menu_a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 230px;
+	height: 30px;
+	background-color: #fff;
+	padding: 15px 0px;
+	box-shadow: 0px 10px 20px rgb(235, 210, 210);
+	transition-timing-function: ease;
+	transition-duration: 1s;
+}
+
+.menu_a:hover {
+	color: white;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(107, 107, 107);
+	transition-timing-function: ease;
+	transition-duration: 0.5s;
+}
+
+ul li:first-child {
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+}
+
+ul li:last-child {
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+
+#sandwichs {
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+
+#drinks {
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+
+#sandwichs:hover {
+	background-color: rgb(255, 139, 72);
+}
+
+#salads:hover {
+	background-color: rgb(72, 255, 127);
+}
+
+#desserts:hover {
+	background-color: rgb(255, 72, 148);
+}
+
+#drinks:hover {
+	background-color: rgb(72, 188, 255);
+}
+
+.menu_li:hover>ul {
+	visibility: visible;
+	opacity: 1;
+}
+
+ul li {
+	text-align: center;
+	padding: 20px 10px;
+	border-top: 1px solid rgb(243, 233, 233);
+	transition-timing-function: ease;
+	transition-duration: 1s;
+}
+
+ul {
+	visibility: hidden;
+	opacity: 0;
+	border-radius: 25px;
+	list-style: none;
+	position: relative;
+	top: 60px;
+	width: 230px;
+	background-color: #fff;
+	padding: 0px;
+	box-shadow: 0px 10px 20px rgb(248, 222, 222);
+	transition-timing-function: ease;
+	transition-duration: 1s;
+}
+
+
+li ul li:hover {
+	background-color: rgb(255, 248, 241);
+}
+
+#green:hover {
+	background-color: rgb(236, 253, 242);
+}
+
+#green:hover a {
+	color: rgb(72, 255, 133);
+}
+
+#blue:hover {
+	background-color: rgb(241, 252, 255);
+}
+
+#blue:hover a {
+	color: rgb(72, 218, 255);
+}
+
+#yellow:hover {
+	background-color: rgb(253, 251, 237);
+}
+
+#yellow:hover a {
+	color: rgb(255, 228, 72);
+}
+
+#purple:hover {
+	background-color: rgb(251, 242, 253);
+}
+
+#purple:hover a {
+	color: rgb(212, 72, 255);
+}
+
+#orange:hover {
+	background-color: rgb(255, 244, 235);
+}
+
+#orange:hover a {
+	color: rgb(255, 154, 72);
+}
