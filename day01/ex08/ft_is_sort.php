@@ -1,19 +1,12 @@
-#!/usr/bin/php
 <?php
-	function ft_split($str)
-	{
-		$arr = array();
-		$expl = explode(" ", $str);
-		foreach ($expl as $elem)
-			if ($elem)
-				array_push($arr, $elem);
-		return ($arr);
+function ft_is_sort($arr) {
+    $copy = $arr;
+    $rev_copy = $arr;
+    sort($copy);
+    rsort($rev_copy);
+    if ($arr === $copy || $arr === $rev_copy) {
+        return true;
 	}
-
-	$split = ft_split($argv[1]);
-	$last = array_pop($split);
-	$concat = $last . " ";
-	foreach ($split as $elem)
-		$concat = $concat . "$elem ";
-	echo trim($concat) . "\n";
+    return false;
+}
 ?>

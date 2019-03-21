@@ -1,16 +1,6 @@
 #!/usr/bin/php
 <?php
-	function ft_split($str)
-	{
-		$arr = array();
-		$expl = explode(" ", $str);
-		foreach ($expl as $elem)
-			if ($elem)
-				array_push($arr, $elem);
-		return ($arr);
-	}
-	$split = ft_split($argv[1]);
-	foreach ($split as $elem)
-		$concat = $concat . $elem . " ";
-	echo trim($concat)."\n";
+if ($argc >= 2) {
+	echo trim(preg_replace('/\s+/', ' ', $argv[1])) . "\n";
+}
 ?>

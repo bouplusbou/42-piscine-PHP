@@ -1,10 +1,15 @@
 #!/usr/bin/php
 <?php
-if ($argc != 4)
+if ($argc != 2) {
 	exit("Incorrect Parameters\n");
-$a = preg_replace('/[ \t]/', '', $argv[1]);
-$op = preg_replace('/[ \t]/', '', $argv[2]);
-$b = preg_replace('/[ \t]/', '', $argv[3]);
+}
+preg_match('/^\s*([0-9]{1,})\s*([+\-\/%*])\s*([0-9]{1,})\s*$/', $argv[1], $matches);
+if (empty($matches)) {
+	exit("Syntax Error\n");
+}
+$a = $matches[1];
+$op = $matches[2];
+$b = $matches[3];
 if ($op == '+') {
 	echo $a + $b . "\n";
 } elseif ($op == '-') {

@@ -1,12 +1,9 @@
 #!/usr/bin/php
 <?php
-function ft_split($str)
+function ft_split($str) 
 {
-	$arr = array();
-	$expl = explode(" ", $str);
-	foreach ($expl as $elem)
-		if ($elem)
-			array_push($arr, $elem);
+	$arr = explode(" ", trim(preg_replace('/\s+/', ' ', $str)));
+	sort($arr);
 	return ($arr);
 }
 
@@ -46,10 +43,14 @@ function ssap2_cmp($b, $a)
 	return (!isset($a[$i]) ? 1 : -1);
 }
 
-foreach (array_slice($argv, 1) as $elem)
-	$concat = $concat . " $elem";
-$split = ft_split($concat);
-usort($split, "ssap2_cmp");
-foreach ($split as $elem)
-	echo "$elem\n";
+if ($argc >= 2) {
+	foreach (array_slice($argv, 1) as $elem) {
+		$concat = $concat . " $elem";
+	}
+	$split = ft_split($concat);
+	usort($split, "ssap2_cmp");
+	foreach ($split as $elem) {
+		echo "$elem\n";
+	}
+}
 ?>

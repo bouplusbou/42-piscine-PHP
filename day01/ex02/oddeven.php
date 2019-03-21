@@ -1,20 +1,16 @@
 #!/usr/bin/php
 <?php
+while (true) {
 	echo "Entrez un nombre: ";
-	$handle = fopen ("php://stdin","r");
-	$line = fgets($handle);
-	if ($line == NULL)
-	{
-		echo "^D\n";
-		fclose($handle);
-		return ;
-	}
-	$line = trim($line);
-	if (!is_numeric($line))
-		echo "'$line' n'est pas un chiffre\n";
-	else if ($line % 2 == 0)
-		echo "Le chiffre $line est Pair\n";
-	else
-		echo "Le chiffre $line est Impair\n";	
-	fclose($handle);
+	if (($input = trim(fgets(STDIN))) == NULL) {
+        exit("\n");
+    }
+	if (!is_numeric($input)) {
+		echo "'$input' n'est pas un chiffre\n";
+	} elseif (substr($input, -1) % 2 == 0) {
+		echo "Le chiffre $input est Pair\n";
+	} else {
+		echo "Le chiffre $input est Impair\n";	
+	}	
+}
 ?>

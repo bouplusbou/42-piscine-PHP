@@ -1,19 +1,11 @@
 #!/usr/bin/php
 <?php
-	function ft_split($str)
-	{
-		$arr = array();
-		$expl = explode(" ", $str);
-		foreach ($expl as $elem)
-			if ($elem)
-				array_push($arr, $elem);
-		return ($arr);
-	}
-
-	$split = ft_split($argv[1]);
+if ($argc >= 2) {
+	$split = explode(" ", trim(preg_replace('/\s+/', ' ', $argv[1])));
 	$last = array_pop($split);
-	$concat = $last . " ";
+	$concat = "$last ";
 	foreach ($split as $elem)
 		$concat = $concat . "$elem ";
-	echo trim($concat) . "\n";
+	echo trim($concat) . "\n";	
+}
 ?>
