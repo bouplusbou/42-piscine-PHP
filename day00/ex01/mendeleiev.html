@@ -15,12 +15,33 @@
 			height: 100%;
 		}
 
+		.home {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			height: 70vh;
+			background-color: #E1F5FD;
+			margin-bottom: 20px;
+		}
+
+		img {
+			height: 20vw;
+		}
+
+		h1 {
+			font-family: 'Inknut Antiqua', serif;
+			font-size: 5vw;
+			color: #6EBDDF;
+			font-weight: normal;
+			line-height: 4vw;
+		}
+
 		.table_container {
 			display: flex;
 			width: 60vw;
 			margin: 0 auto;
 			margin-top: 10vh;
-			margin-bottom: 0;
+			margin-bottom: 10vh;
 		}
 
 		.table_wrapper {
@@ -686,9 +707,9 @@
 		}
 
 		.alkali_metal {
-			box-shadow: 3px 3px 0px #DB4A54;
-			border-color: #DB4A54;
-			color: #DB4A54;
+			box-shadow: 3px 3px 0px #e22f3b;
+			border-color: #e22f3b;
+			color: #e22f3b;
 		}
 
 		.alkaline_earth_metal {
@@ -736,6 +757,15 @@
 </head>
 
 <body>
+	<div class="home">
+		<div>
+			<h1>Mendeleiev's</h1>
+			<h1 style="margin-left:6vw">periodic table</h1>
+		</div>
+		<div class="photo-wrapper">
+			<img src="https://i.postimg.cc/Xq9DgGJW/Group.png" alt="mendeleiev.png">
+		</div>
+	</div>
 	<div class="table_container">
 		<ol class="table_wrapper">
 			<li id="H" class="element nonmetal">
@@ -883,7 +913,7 @@
 				<p class="nb">29</p>
 				<p class="mass">63.54</p>
 			</li>
-			<li id="Zn" class="element transition_metal">
+			<li id="Zn" class="element metal">
 				<h2>Zn</h2>
 				<p class="nb">30</p>
 				<p class="mass">65.38</p>
@@ -973,7 +1003,7 @@
 				<p class="nb">47</p>
 				<p class="mass">107.8</p>
 			</li>
-			<li id="Cd" class="element transition_metal">
+			<li id="Cd" class="element metal">
 				<h2>Cd</h2>
 				<p class="nb">48</p>
 				<p class="mass">112.4</p>
@@ -1133,7 +1163,7 @@
 				<p class="nb">79</p>
 				<p class="mass">196.9</p>
 			</li>
-			<li id="Hg" class="element transition_metal">
+			<li id="Hg" class="element metal">
 				<h2>Hg</h2>
 				<p class="nb">80</p>
 				<p class="mass">200.5</p>
@@ -1153,12 +1183,12 @@
 				<p class="nb">83</p>
 				<p class="mass">208.9</p>
 			</li>
-			<li id="Po" class="element metalloid">
+			<li id="Po" class="element metal">
 				<h2>Po</h2>
 				<p class="nb">84</p>
 				<p class="mass">[209]</p>
 			</li>
-			<li id="At" class="element halogen">
+			<li id="At" class="element metalloid">
 				<h2>At</h2>
 				<p class="nb">85</p>
 				<p class="mass">[210]</p>
@@ -1248,7 +1278,7 @@
 				<p class="nb">102</p>
 				<p class="mass">[259]</p>
 			</li>
-			<li id="Lr" class="element transition_metal">
+			<li id="Lr" class="element actinoid">
 				<h2>Lr</h2>
 				<p class="nb">103</p>
 				<p class="mass">[262]</p>
@@ -1278,52 +1308,52 @@
 				<p class="nb">108</p>
 				<p class="mass">[270]</p>
 			</li>
-			<li id="Mt" class="element transition_metal">
+			<li id="Mt" class="element unknown">
 				<h2>Mt</h2>
 				<p class="nb">109</p>
 				<p class="mass">[276]</p>
 			</li>
-			<li id="Ds" class="element transition_metal">
+			<li id="Ds" class="element unknown">
 				<h2>Ds</h2>
 				<p class="nb">110</p>
 				<p class="mass">[281]</p>
 			</li>
-			<li id="Rg" class="element transition_metal">
+			<li id="Rg" class="element unknown">
 				<h2>Rg</h2>
 				<p class="nb">111</p>
 				<p class="mass">[280]</p>
 			</li>
-			<li id="Cn" class="element transition_metal">
+			<li id="Cn" class="element metal">
 				<h2>Cn</h2>
 				<p class="nb">112</p>
 				<p class="mass">[285]</p>
 			</li>
-			<li id="Nh" class="element post-transition_metal">
+			<li id="Nh" class="element unknown">
 				<h2>Nh</h2>
 				<p class="nb">113</p>
 				<p class="mass">[284]</p>
 			</li>
-			<li id="Fl" class="element post-transition_metal">
+			<li id="Fl" class="element unknown">
 				<h2>Fl</h2>
 				<p class="nb">114</p>
 				<p class="mass">[289]</p>
 			</li>
-			<li id="Mc" class="element post-transition_metal">
+			<li id="Mc" class="element unknown">
 				<h2>Mc</h2>
 				<p class="nb">115</p>
 				<p class="mass">[288]</p>
 			</li>
-			<li id="Lv" class="element post-transition_metal">
+			<li id="Lv" class="element unknown">
 				<h2>Lv</h2>
 				<p class="nb">116</p>
 				<p class="mass">[293]</p>
 			</li>
-			<li id="Ts" class="element post-transition_metal">
+			<li id="Ts" class="element unknown">
 				<h2>Ts</h2>
 				<p class="nb">117</p>
 				<p class="mass">[294]</p>
 			</li>
-			<li id="Og" class="element noble_gas">
+			<li id="Og" class="element unknown">
 				<h2>Og</h2>
 				<p class="nb">118</p>
 				<p class="mass">[294]</p>
