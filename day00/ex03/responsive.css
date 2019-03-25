@@ -38,7 +38,7 @@ h1 {
 
 .table_container {
 	display: flex;
-	width: 60vw;
+	width: 95vw;
 	height: 100vh;
 	margin: 0 auto;
 	margin-top: 10vh;
@@ -47,7 +47,7 @@ h1 {
 
 .table_wrapper {
 	display: grid;
-	grid-gap: 10px;
+	grid-gap: 1vw;
 	grid-template-columns: repeat(18, minmax(0px, 15vw));
 	grid-template-rows: repeat(9, minmax(0px, 5vw));
 	margin: 0 auto;
@@ -64,7 +64,7 @@ h2 {
 	justify-content: center;
 	font-family: 'Playfair Display', serif;
 	font-weight: 900;
-	font-size: calc(0.5em + 1vw);
+	font-size: calc(0.2em + 1vw);
 	margin-top: 30%;
 	margin-bottom: 0%;
 
