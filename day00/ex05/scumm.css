@@ -213,3 +213,23 @@ p, i {
 	bottom: 175px;
 	left: 530px;
 }
+
+#batiment {
+	/* background-color: black; */
+	z-index: 90;
+	position: absolute;
+	width: 250px;
+	height: 250px;
+	bottom: 300px;
+	left: 1100px;
+}
+
+#fenetres {
+	/* background-color: black; */
+	z-index: 90;
+	position: absolute;
+	width: 600px;
+	height: 170px;
+	bottom: 600px;
+	left: 1400px;
+}
