@@ -3,13 +3,16 @@
 if ($argc != 2) {
 	exit("Incorrect Parameters\n");
 }
-preg_match('/^\s*([0-9]{1,})\s*([+\-\/%*])\s*([0-9]{1,})\s*$/', $argv[1], $matches);
+preg_match('/^\s*([+-]?[0-9]{1,})\s*([+\-\/%*])\s*([+-]?[0-9]{1,})\s*$/', $argv[1], $matches);
 if (empty($matches)) {
 	exit("Syntax Error\n");
 }
 $a = $matches[1];
 $op = $matches[2];
 $b = $matches[3];
+if (($op === '/' || $op === '%') && intval($b) === 0) {
+	exit("Division by 0 Error\n");
+}
 if ($op == '+') {
 	echo $a + $b . "\n";
 } elseif ($op == '-') {
