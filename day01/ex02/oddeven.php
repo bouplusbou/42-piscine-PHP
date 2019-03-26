@@ -2,9 +2,10 @@
 <?php
 while (true) {
 	echo "Entrez un nombre: ";
-	if (($input = trim(fgets(STDIN))) == NULL) {
+	if (($input = fgets(STDIN)) == NULL) {
         exit("\n");
-    }
+	}
+	$input = trim($input);
 	if (!is_numeric($input)) {
 		echo "'$input' n'est pas un chiffre\n";
 	} elseif (substr($input, -1) % 2 == 0) {
