@@ -1,22 +1,9 @@
 #!/usr/bin/php
 <?php
-
-
-// checker si certaines key ne sont pas crees
-
-
-
-// function inv_header_key($str)
-// {
-// 	if ($str === "nom" || $str === "prenom" || $str === "mail" || $str === "IP" || $str === "pseudo") {
-// 		return false;
-// 	} else {
-// 		return true;
-// 	}
-// }
-// if ($argc != 3 || !file_exists($argv[1]) || inv_header_key($argv[3])) {
-// 	exit();
-// }
+$header_keys = array("nom", "prenom", "mail", "IP", "pseudo");
+if ($argc != 3 || !file_exists($argv[1]) || !in_array($argv[2], $header_keys)) {
+	exit();
+}
 if (($handle = fopen($argv[1], "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 		for ($i = 0; $i <= 4; $i++) {
