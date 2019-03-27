@@ -1,5 +1,4 @@
 <?php
-echo hash('sha512', "kjbdskjfjkdsnfkldsnfkjnjknlknlknkjkhjbkjhbkjh")."\n";
 if ($_POST["submit"] === "OK" && $_POST['login'] !== "" && $_POST['passwd'] !== "") {
 	if (!file_exists("../htdocs/")) {
 		mkdir("../htdocs/");
