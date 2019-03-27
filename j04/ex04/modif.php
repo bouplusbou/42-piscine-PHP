@@ -11,6 +11,7 @@ if ($_POST["submit"] === "OK" && $_POST["newpw"] !== "") {
 				$user['passwd'] = $newpw;
 				$arr_passwd_serialized = serialize($arr_passwd);
 				file_put_contents("../htdocs/private/passwd", "$arr_passwd_serialized");
+				header("Location: index.html");
 				exit("OK\n");
 			};
 		}
