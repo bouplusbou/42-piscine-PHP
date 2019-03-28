@@ -10,7 +10,6 @@ if (auth($login, $passwd)) {
 	exit("ERROR\n");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

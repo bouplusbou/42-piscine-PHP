@@ -1,10 +1,10 @@
 <?php
 session_start();
 date_default_timezone_set("Europe/Paris");
-if (file_exists("../htdocs/private/chat")) {
-	$fp = fopen("../htdocs/private/chat", "r");
+if (file_exists("../private/chat")) {
+	$fp = fopen("../private/chat", "r");
 	if (flock($fp, LOCK_SH)) { // acquière un verrou exclusif
-		$file_msg = file_get_contents("../htdocs/private/chat");
+		$file_msg = file_get_contents("../private/chat");
 		$arr_msg = unserialize($file_msg);
 		foreach ($arr_msg as $msg) {
 			$time = new DateTime('@' . $msg['time']);
@@ -18,18 +18,4 @@ if (file_exists("../htdocs/private/chat")) {
 	}
 	fclose($fp);
 }
-//[09:42] <b>user1</b>: Bonjours<br />
-//[09:43] <b>user2</b>: Hello<br />
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-</head>
-<body>
-	
-</body>
-</html>
