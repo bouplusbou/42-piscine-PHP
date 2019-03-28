@@ -1,11 +1,14 @@
 #!/usr/bin/php
 <?php
 if ($argc == 2) {
+	$page = @file_get_contents($argv[1]);
+	if ($page === false) {
+		exit;
+	}
 	preg_match("~//(.*)~", $argv[1], $dir);
 	if (!file_exists($dir[1])) {
 		mkdir($dir[1], 0755, true);
 	}
-	$page = file_get_contents($argv[1]);
 	preg_match_all("~<img .*?>~", $page, $images);
 	foreach ($images[0] as $image) {
 		preg_match("~src=\"(.*?)\"~", $image, $src);
@@ -23,7 +26,7 @@ if ($argc == 2) {
            		$counter++;
      		}
 			file_put_contents($dir_path, file_get_contents($path));
-		} 
+		}
 		elseif ($path) {
 			if (preg_match("~^/~", $path)) {
 				$path = $argv[1] . $path;
