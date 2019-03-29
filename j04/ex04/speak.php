@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set("Europe/Paris");
 if ($_SESSION['loggued_on_user'] == "") {
 	exit("ERROR\n");;
 }
@@ -11,20 +12,16 @@ if (isset($_POST['msg'])) {
 	if (!file_exists("../private/chat")) {
 		file_put_contents("../private/chat", "");
 	}
-	$file_msg = file_get_contents("../private/chat");
-	$arr_msg = unserialize($file_msg);
-	date_default_timezone_set("Europe/Paris");
-	$arr_msg[] = array("login" => $_SESSION['loggued_on_user'], "time" => time(), "msg" => $_POST['msg']);
-	$arr_msg_serialized = serialize($arr_msg);
-	$fp = fopen("../private/chat", "r+");
-	if (flock($fp, LOCK_EX)) { // acquière un verrou exclusif
-		file_put_contents("../private/chat", "$arr_msg_serialized");
-		fflush($fp);            // libère le contenu avant d'enlever le verrou
-		flock($fp, LOCK_UN);    // Enlève le verrou
-	} else {
-		echo "Impossible de verrouiller le fichier !\n";
+	$fp = fopen("../private/chat", "r");
+	if (flock($fp, LOCK_SH)) {
+		$file_msg = file_get_contents("../private/chat");
+		flock($fp, LOCK_UN);
 	}
 	fclose($fp);
+	$arr_msg = unserialize($file_msg);
+	$arr_msg[] = array("login" => $_SESSION['loggued_on_user'], "time" => time(), "msg" => $_POST['msg']);
+	$arr_msg_serialized = serialize($arr_msg);
+	file_put_contents("../private/chat", "$arr_msg_serialized", LOCK_EX);
 }
 ?>
 <!DOCTYPE html>

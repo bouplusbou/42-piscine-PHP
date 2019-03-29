@@ -1,26 +1,160 @@
+EX00
+curl -v -c cook.txt "http://e2r6p12.42.fr:8080/j04/ex00/index.php"
+> GET /ex00/index.php HTTP/1.1
+>
+< HTTP/1.1 200 OK
+* Added cookie PHPSESSID="mfpmngdi4qjbfli03nfgrevu17" for domain j04.local.42.fr, path /, expire 0
+< Set-Cookie: PHPSESSID=mfpmngdi4qjbfli03nfgrevu17; path=/
+<
+<html><body>
+<form ...>
+Identifiant: <input ... name="login" value="" />
+<br />
+Mot de passe: <... />
+<input type="submit" ... />
+</form>
+</body></html>
+$>
+
+
+curl -v -b cook.txt "http://e2r6p12.42.fr:8080/j04/ex00/index.php?login=sb&passwd=beeone&submit=OK"
+> GET /ex00/index.php?login=sb&passwd=beeone&submit=OK HTTP/1.1
+> Cookie: PHPSESSID=mfpmngdi4qjbfli03nfgrevu17
+>
+< HTTP/1.1 200 OK
+<
+<html><body>
+<form ...>
+Identifiant: <input ... name="login" value="sb" />
+<br />
+Mot de passe: <... value="beeone" />
+<input type="submit" ... />
+</form>
+</body></html>
+$>
+
+
+curl -v -b cook.txt "http://e2r6p12.42.fr:8080/j04/ex00/index.php"
+> GET /ex00/index.php HTTP/1.1
+> Cookie: PHPSESSID=mfpmngdi4qjbfli03nfgrevu17
+>
+< HTTP/1.1 200 OK
+<
+<html><body>
+<form ...>
+Identifiant: <input ... name="login" value="sb" />
+<br />
+Mot de passe: <... value="beeone" />
+<input type="submit" ... />
+</form>
+</body></html>
+$>
+
+
+curl -v "http://e2r6p12.42.fr:8080/j04/ex00/index.php"
+> GET /ex00/index.php?login=sb&passwd=beeone&submit=OK HTTP/1.1
+>
+< HTTP/1.1 200 OK
+< Set-Cookie: PHPSESSID=r7u3bnggoe91negv7aqnjkm0q6; path=/
+<
+<html><body>
+<form ...>
+Identifiant: <input ... name="login" value="" />
+<br />
+Mot de passe: <... value="" />
+<input type="submit" ... />
+</form>
+</body></html>
+$>
+
+
+
+
+
+
 EX01
-curl "http://e2r6p12.42.fr:8080/j03/ex01/phpinfo.php"
+rm ~/http/Piscines/j04/htdocs/private/passwd
+curl -d login=toto1 -d passwd=titi1 -d submit=OK "http://e2r6p12.42.fr:8080/j04/ex01/create.php"
+OK
+more ~/http/Piscines/j04/htdocs/private/passwd
+a:1:{i:0;a:2:{s:5:"login";s:5:"toto1";s:6:"passwd";s:128:"2bdd45b3c828273786937ac1b4ca7908a431019
+e8b93c9fd337317f92fac80dace29802bedc33d9259c8b55d1572cb8a6c1df8579cdaa02256099ed52a905d38";}}
+curl -d login=toto1 -d passwd=titi1 -d submit=OK "http://e2r6p12.42.fr:8080/j04/ex01/create.php"
+ERROR
+curl -d login=toto2 -d passwd= -d submit=OK "http://e2r6p12.42.fr:8080/j04/ex01/create.php"
+ERROR
+$>
+
+
 
 EX02
-curl "http://e2r6p12.42.fr:8080/j03/ex02/print_get.php?login=mmontinet"
-curl "http://e2r6p12.42.fr:8080/j03/ex02/print_get.php?gdb=pied2biche&barry=barreamine"
+rm ~/http/Piscines/j04/htdocs/private/passwd
+curl -d login=x -d passwd=21 -d submit=OK "http://e2r6p12.42.fr:8080/j04/ex01/create.php"
+OK
+curl -d login=x -d oldpw=21 -d newpw=42 -d submit=OK "http://e2r6p12.42.fr:8080/j04/ex02/modif.php"
+OK
+more ~/http/Piscines/j04/htdocs/private/passwd
+a:1:{i:0;a:2:{s:5:"login";s:1:"x";s:6:"passwd";s:128:"fee32be7c00e73eab97a39549d79af73aec87b6fa22a0b
+56867a4975fe82344cd9776c6d6dff419e0f2e415c492340bb8329bbfac0c872934df66466c2e0e5d3";}}
+curl -d login=x -d oldpw=21 -d newpw=42 -d submit=OK "http://e2r6p12.42.fr:8080/j04/ex02/modif.php"
+ERROR
+curl -d login=x -d oldpw=42 -d newpw= -d submit=OK "http://e2r6p12.42.fr:8080/j04/ex02/modif.php"
+ERROR
+$>
+
+
+
 
 EX03
-curl -c cook.txt "http://e2r6p12.42.fr:8080/j03/ex03/cookie_crisp.php?action=set&name=plat&value=choucroute"
-curl -b cook.txt "http://e2r6p12.42.fr:8080/j03/ex03/cookie_crisp.php?action=get&name=plat"
-choucroute
-curl -c cook.txt "http://e2r6p12.42.fr:8080/j03/ex03/cookie_crisp.php?action=del&name=plat"
-curl -b cook.txt "http://e2r6p12.42.fr:8080/j03/ex03/cookie_crisp.php?action=get&name=plat"
+rm ~/http/Piscines/j04/private/passwd
+curl -d login=toto -d passwd=titi -d submit=OK "http://e2r6p12.42.fr:8080/j04/ex01/create.php"
+OK
+curl "http://e2r6p12.42.fr:8080/j04/ex03/login.php?login=toto&passwd=titi"
+OK
+$>
+
+
+rm ~/http/Piscines/j04/htdocs/private/passwd
+curl -d login=toto -d passwd=titi -d submit=OK "http://e2r6p12.42.fr:8080/j04/ex01/create.php"
+OK
+curl -c cook.txt "http://e2r6p12.42.fr:8080/j04/ex03/login.php?login=toto&passwd=titi"
+OK
+curl -b cook.txt "http://e2r6p12.42.fr:8080/j04/ex03/whoami.php"
+toto
+curl -b cook.txt "http://e2r6p12.42.fr:8080/j04/ex03/logout.php"
+curl -b cook.txt "http://e2r6p12.42.fr:8080/j04/ex03/whoami.php"
+ERROR
+$>
+
+
+
+
 
 EX04
-curl "http://e2r6p12.42.fr:8080/j03/ex04/raw_text.php"
+curl -d login=user1 -d passwd=pass1 -d submit=OK "http://e2r6p12.42.fr:8080/j04/ex04/create.php"
+OK
+curl -d login=user2 -d passwd=pass2 -d submit=OK "http://e2r6p12.42.fr:8080/j04/ex04/create.php"
+OK
+curl -c user1.txt -d login=user1 -d passwd=pass1 "http://e2r6p12.42.fr:8080/j04/ex04/login.php"
+...
+<iframe name="chat" src="chat.php" width="100%" height="550px"></iframe>
+<iframe name="speak" src="speak.php" width="100%" height="50px"></iframe>
+...
+curl -b user1.txt -d submit=OK -d msg=Bonjours "http://e2r6p12.42.fr:8080/j04/ex04/speak.php"
+...
+curl -b user1.txt -c user1.txt "http://e2r6p12.42.fr:8080/j04/ex04/logout.php"
+curl -b user1.txt -d submit=OK -d msg=Bonjours "http://e2r6p12.42.fr:8080/j04/ex04/speak.php"
+ERROR
+curl -c user2.txt -d login=user2 -d passwd=pass2 "http://e2r6p12.42.fr:8080/j04/ex04/login.php"
+...
+curl -b user2.txt -d submit=OK -d msg=Hello "http://e2r6p12.42.fr:8080/j04/ex04/speak.php"
+...
+more ~/http/Piscines/j04/htdocs/private/chat
+a:2:{i:0;a:3:{s:5:"login";s:5:"user1";s:4:"time";i:1364287362;s:3:"msg";s:8:"Bonjours";}i:1;a:3:{s:5:
+"login";s:5:"user2";s:4:"time";i:1364287423;s:3:"msg";s:5:"Hello";}}
+curl -b user2.txt "http://e2r6p12.42.fr:8080/j04/ex04/chat.php"
+[09:42] <b>user1</b>: Bonjours<br />
+[09:43] <b>user2</b>: Hello<br />
+$>
 
-lynx -dump "http://e2r6p12.42.fr:8080/j03/ex04/raw_text.php"
-lynx -source "http://e2r6p12.42.fr:8080/j03/ex04/raw_text.php"
 
-EX05
-curl --head http://e2r6p12.42.fr:8080/j03/ex05/read_img.php
-
-EX06
-curl --user zaz:jaimelespetitsponeys http://e2r6p12.42.fr:8080/j03/ex06/members_only.php
-curl -v --user root:root http://e2r6p12.42.fr:8080/j03/ex06/members_only.php
