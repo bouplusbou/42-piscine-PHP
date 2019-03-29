@@ -14,7 +14,7 @@ if (file_exists("../private/chat")) {
 		foreach ($arr_msg as $msg) {
 			$time = new DateTime('@' . $msg['time']);
 			$time = $time->format('H:i');
-			echo "[".$time."] <b>".$msg['login']."</b>: ".$msg['msg']."<br />\n";
+			echo "[".$time."] <b>".htmlspecialchars($msg['login'])."</b>: ".htmlspecialchars($msg['msg'])."<br />\n";
 		}
 	fclose($fp);
 }

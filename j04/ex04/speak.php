@@ -14,7 +14,7 @@ if (isset($_POST['msg'])) {
 	$file_msg = file_get_contents("../private/chat");
 	$arr_msg = unserialize($file_msg);
 	date_default_timezone_set("Europe/Paris");
-	$arr_msg[] = array("login" => $_SESSION['loggued_on_user'], "time" => time(), "msg" => htmlspecialchars($_POST['msg']));
+	$arr_msg[] = array("login" => $_SESSION['loggued_on_user'], "time" => time(), "msg" => $_POST['msg']);
 	$arr_msg_serialized = serialize($arr_msg);
 	$fp = fopen("../private/chat", "r+");
 	if (flock($fp, LOCK_EX)) { // acquière un verrou exclusif
