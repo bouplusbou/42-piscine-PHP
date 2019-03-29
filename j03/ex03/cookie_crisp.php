@@ -11,7 +11,7 @@ switch ($action) {
 			echo $_COOKIE[$name] . "\n";
 		break;
 	case "del":
-		setcookie($name, "", time()-3600);
+		setcookie($name, "", time() - 3600);
 		break;
 }
 ?>

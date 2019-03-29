@@ -10,12 +10,16 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
 	if ($username === "zaz" && $password === "jaimelespetitsponeys") {
 		$imagedata = file_get_contents("../img/42.png");
 		$base64 = base64_encode($imagedata);
-		echo "<html><body>\n";
-		echo "Bonjour Zaz<br />\n";
-		echo "<img src='data:image/png;base64,$base64' >\n";
-		echo "</body></html>\n";
-	} else {
-		echo "<html><body>Cette zone est accessible uniquement aux membres du site</body></html>\n";
+?>
+<html><body>
+Bonjour Zaz<br />
+<img src='data:image/png;base64,<?=$base64?>'>
+</body></html>
+<?php
+} else {
+?>
+<html><body>Cette zone est accessible uniquement aux membres du site</body></html>
+<?php
 	}
 }
 ?>
