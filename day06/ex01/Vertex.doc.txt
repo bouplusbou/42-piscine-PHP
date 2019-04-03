@@ -2,7 +2,7 @@
 <- Vertex ----------------------------------------------------------------------
 The Vertex class handles coordinates and a color.
 
-An instance can be contructed from coordinates x, y, z and w + an instance of the Color class:
+An instance can be constructed from coordinates x, y, z and w + an instance of the Color class:
 new Vertex( array( 'x' => 1.0, 'y' => 0.0, 'z' => 0.0, 'w' => 0.9, 'color' => $green ) );
 
 Or no color but just coordinates:

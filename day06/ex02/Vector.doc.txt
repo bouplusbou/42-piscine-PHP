@@ -1,0 +1,43 @@
+
+<- Vector ----------------------------------------------------------------------
+The Vector class handles two Vertex.
+
+An instance can be constructed from two instances of the Vertex class:
+$vtxY = new Vertex( array( 'x' => 0.0, 'y' => 1.0, 'z' => 0.0 ) );
+$vtxZ = new Vertex( array( 'x' => 0.0, 'y' => 0.0, 'z' => 1.0 ) );
+$vtcXunit = new Vector( array( 'orig' => $vtxO, 'dest' => $vtxX ) );
+
+If you don't precise the origin, the default $origin Vertex will be applied:
+new Vertex( array( 'x' => 0.0, 'y' => 0.0, 'z' => 0.0 ) );
+
+Using negative values results in undefined behaviour.
+
+The class provides the following methods :
+
+float	magnitude();
+Returns the magnitude (or length) of the vector.
+
+Vector	normalize();
+Returns a normalized version of the vector (also called a unit vector, same direction but with a length of 1).
+
+Vector	add( Vector $rhs );
+Returns the vector sum of two vectors.
+
+Vector	sub( Vector $rhs );
+Returns the Vector difference of two vectors.
+
+Vector	opposite();
+Returns the opposite vector.
+
+Vector	scalarProduct( $k );
+Returns the product of the vector multiplied by a scalar.
+
+float	dotProduct( Vector $rhs );
+Returns the scalar product of two vectors
+
+float	cos( Vector $rhs );
+Returns the angle between two vectors.
+
+Vector	crossProduct( Vector $rhs );
+Returns the cross product of two vectors.
+---------------------------------------------------------------------- Vector ->
