@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calc</title>
+	<style>
+		body {
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+
+	<input type="text" id="left">
+	<select id="operator">
+		<option value="plus">+</option>
+		<option value="min">-</option>
+		<option value="div">/</option>
+		<option value="mult">*</option>
+		<option value="mod">%</option>
+	</select>
+	<input type="text" id="right">
+	<input type="submit" class="text" value="Try me!" id="submit">
+
+	<script>
+		const reminder = () => {
+		    console.log('Please use me...')
+		}
+		setInterval(function(){ reminder() }, 30000)
+		const isNormalInteger = str => {
+    		return /^\+?(0|[1-9]\d*)$/.test(str);
+		};
+		const calc = (a, op, b) => {
+			let res;
+			switch (op) {
+				case 'plus':
+					res = a + b;
+					break;
+				case 'min':
+					res = a - b;
+					break;
+				case 'mod':
+					res = a % b;
+					break;
+				case 'div':
+					res = a / b;
+					break;
+				case 'mult':
+					res = a * b;
+					break;
+			}
+			console.log(res);
+			alert(res);
+		};
+		const submit = document.getElementById('submit');
+		submit.addEventListener("click", (event) => {
+			let opSelect = document.getElementById('operator');
+			let op = opSelect.options[opSelect.selectedIndex].value;
+			let left = document.getElementById('left').value;
+			let a = parseInt(left, 10);
+			let right = document.getElementById('right').value;
+			let b = parseInt(right, 10);
+			if ((op === "div" || op === "mod") && b === 0) {
+				console.log('It’s over 9000!');
+				alert('It’s over 9000!');
+				return;
+			}
+			if (!isNormalInteger(left) || !isNormalInteger(right)) {
+				console.log('Error :(');
+				alert('Error :(');
+				return;
+			}
+			calc(a, op, b);
+		});
+	</script>
+
+	</body>
+</html>

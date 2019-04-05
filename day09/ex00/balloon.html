@@ -3,6 +3,12 @@
 <head>
 	<title>Balloon</title>
 	<style>
+		body {
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 		#balloon {
 			height: 200px;
 			width: 200px;
@@ -12,23 +18,19 @@
 	</style>
 </head>
 <body>
-	<div id="balloon">
 
-	</div>
+	<div id="balloon"></div>
+
 	<script>
-
-////////////////////////////////////////////////////////////////////////////////////////////////////trouver pourquoi le premier event fout la merde
-
 		const changeColor = (balloon, dir) => {
-			console.log(balloon.style.backgroundColor);
-			if (balloon.style.backgroundColor === "red")
+			if (balloon.style.backgroundColor === "red" || balloon.style.backgroundColor === "")
 				balloon.style.backgroundColor = dir === 'up' ? "green" : "blue";
 			else if (balloon.style.backgroundColor === "green")
 				balloon.style.backgroundColor = dir === 'up' ? "blue" : "red";
 			else
 				balloon.style.backgroundColor = dir === 'up' ? "red" : "green";
 		};
-		const increaseSize = (balloon) => {
+		const increaseSize = (balloon, dir) => {
 			let height = balloon.offsetHeight;
 			height += 10;
 			balloon.style.height = height + "px";
@@ -50,13 +52,12 @@
 		balloon.addEventListener("click", (event) => {
 			increaseSize(event.currentTarget)
 			changeColor(event.currentTarget, "up")
-			console.log(event);
 		});
 		balloon.addEventListener("mouseleave", (event) => {
 			decreaseSize(event.currentTarget);
 			changeColor(event.currentTarget, "down")
-			console.log(event);
 		});
 	</script>
+
 	</body>
 </html>
