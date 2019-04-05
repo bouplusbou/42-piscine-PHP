@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>To-Do</title>
+
 	<style>
 		body {
 			height: 100vh;
@@ -22,112 +23,7 @@
 
 	<input type="submit" value="New" id="submit">
 	<div id="ft_list"></div>
-	<script>
-
-		const list = document.getElementById('ft_list');
-
-		const fillTodo = todo => {
-			let newContent = document.createTextNode(todo);
-			let newDiv = document.createElement("div");
-			newDiv.appendChild(newContent);
-			newDiv.id = new Date().getTime().toString();
-			list.prepend(newDiv);
-		}
-
-
-		
-		const createCookie = (name,value,days) => {
-			if (days) {
-				var date = new Date();
-				date.setTime(date.getTime()+(days*24*60*60*1000));
-				var expires = "; expires="+date.toGMTString();
-			}
-			else var expires = "";
-			document.cookie = name+"="+value+expires+"; path=/";
-		}
-
-		const readCookie = name => {
-			var nameEQ = name + "=";
-			var ca = document.cookie.split(';');
-			for(var i=0;i < ca.length;i++) {
-				var c = ca[i];
-				while (c.charAt(0)==' ') c = c.substring(1,c.length);
-				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-			}
-			return null;
-		}
-
-		const eraseCookie = name => {
-			createCookie(name,"",-1);
-		}
-	
-		const saveCookie = todo => {
-			let cookiesArray = JSON.parse(readCookie('list'));
-			if (!cookiesArray) {
-				cookiesArray = [];
-			}
-			cookiesArray.push(todo);
-			let cookiesString = JSON.stringify(cookiesArray);
-			eraseCookie('list');
-			createCookie('list',cookiesString,2);
-			console.log('cookie save');
-			console.log(document.cookie);
-		}
-		
-
-
-		const eraseFromCookies = todo => {
-			let cookiesArray = JSON.parse(readCookie('list'));
-			const index = cookiesArray.indexOf(todo);
-			if (index !== -1) {
-			  cookiesArray.splice(index, 1);
-			}
-			let cookiesString = JSON.stringify(cookiesArray);
-			eraseCookie('list');
-			createCookie('list',cookiesString,2);
-			console.log('todo erased from cookies and cookies saved');
-			console.log(document.cookie);
-		}
-
-
-
-		let todoArray = JSON.parse(readCookie('list'));
-		if (todoArray) {
-			todoArray.forEach((item) => {
-				let newContent = document.createTextNode(todo);
-				let newDiv = document.createElement("div");
-				newDiv.appendChild(newContent);
-				newDiv.id = new Date().getTime().toString();
-				list.prepend(newDiv);
-			});
-		}
-
-
-		list.addEventListener("click", (event) => {
-			if (confirm('Are you sure you want to delete this item?')) {
-				eraseFromCookies(event.target.innerText);
-				list.removeChild(event.target);
-			}
-			console.log(event.target);
-			console.log(event);
-		});
-
-
-
-		const submit = document.getElementById('submit');
-
-		submit.addEventListener("click", (event) => {
-			let todo = window.prompt("What's new today ?");
-			if (todo) {
-				saveCookie(todo);
-				fillTodo(todo);
-			}
-		});
-
-
-
-
-	</script>
 
 	</body>
+	<script type="text/javascript" src="todo.js"></script>
 </html>

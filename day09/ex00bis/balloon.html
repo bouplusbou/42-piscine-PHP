@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Balloon</title>
+	<style>
+		body {
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		#balloon {
+			height: 200px;
+			width: 200px;
+			background-color: red;
+			border-radius: 50%;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<div id="balloon"></div>
+
+	<script>
+		$(document).ready(function(){
+
+
+		const changeColor = (balloon, dir) => {
+			if (balloon.style.backgroundColor === "red" || balloon.style.backgroundColor === "")
+				balloon.style.backgroundColor = dir === 'up' ? "green" : "blue";
+			else if (balloon.style.backgroundColor === "green")
+				balloon.style.backgroundColor = dir === 'up' ? "blue" : "red";
+			else
+				balloon.style.backgroundColor = dir === 'up' ? "red" : "green";
+		};
+
+			(function( $ ){
+				$.fn.myfunction = function() {
+			      	alert('hello world');
+			     	return this;
+			   		}; 
+			})( jQuery );
+
+			myfunction();
+
+
+
+			$('#balloon').click(function(){
+				increaseSize(event.currentTarget)
+				changeColor(event.currentTarget, "up")
+			});
+
+			$('#balloon').mouseleave(function(){
+				decreaseSize(event.currentTarget);
+				changeColor(event.currentTarget, "down")
+			});
+		
+
+
+
+
+
+		});
+
+
+
+
+
+		const increaseSize = (balloon, dir) => {
+			let height = balloon.offsetHeight;
+			height += 10;
+			balloon.style.height = height + "px";
+			balloon.style.width = height + "px";
+			if (height > 420) {
+				balloon.style.height = "200px";
+				balloon.style.width = "200px";
+			}
+		};
+		const decreaseSize = (balloon) => {
+			let height = balloon.offsetHeight;
+			height -= 5;
+			if (height >= 200) {
+				balloon.style.height = height + "px";
+				balloon.style.width = height + "px";
+			}
+		};
+
+	</script>
+
+	</body>
+</html>
