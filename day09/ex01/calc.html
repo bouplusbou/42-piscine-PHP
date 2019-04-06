@@ -8,6 +8,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
 		}
 	</style>
 </head>
@@ -62,14 +63,14 @@
 			let a = parseInt(left, 10);
 			let right = document.getElementById('right').value;
 			let b = parseInt(right, 10);
-			if ((op === "div" || op === "mod") && b === 0) {
-				console.log('It’s over 9000!');
-				alert('It’s over 9000!');
-				return;
-			}
 			if (!isNormalInteger(left) || !isNormalInteger(right)) {
 				console.log('Error :(');
 				alert('Error :(');
+				return;
+			}
+			if ((op === "div" || op === "mod") && b === 0) {
+				console.log('It’s over 9000!');
+				alert('It’s over 9000!');
 				return;
 			}
 			calc(a, op, b);

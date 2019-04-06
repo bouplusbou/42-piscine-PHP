@@ -8,6 +8,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -67,14 +68,14 @@
 				let a = parseInt(left, 10);
 				let right = $('#right').val();
 				let b = parseInt(right, 10);
-				if ((op === "div" || op === "mod") && b === 0) {
-					console.log('It’s over 9000!');
-					alert('It’s over 9000!');
-					return;
-				}
 				if (!isNormalInteger(left) || !isNormalInteger(right)) {
 					console.log('Error :(');
 					alert('Error :(');
+					return;
+				}
+				if ((op === "div" || op === "mod") && b === 0) {
+					console.log('It’s over 9000!');
+					alert('It’s over 9000!');
 					return;
 				}
 				calc(a, op, b);

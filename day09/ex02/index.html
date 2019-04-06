@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>To-Do</title>
+	<title>To-Do JQuery</title>
 
 	<style>
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
 		body {
 			height: 100vh;
+			background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+		}
+		#container {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+			background-color: white;
+			width: 300px;
+			margin: 300px auto;
+			border-radius: 15px;
 		}
 		#ft_list {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+			font-family: 'Roboto', sans-serif;
+		}
+		#ft_list > div {
+			margin: 10px;
+		}
+		input {
+			font-size: 100%;
+			font-family: 'Roboto', sans-serif;
+			border: 0;
+			margin: 10px 0;
+			border-radius: 4px;
+			padding: 10px;
+			color: #304ed1;
+			background-color: #e7f7ff;
 		}
 	</style>
 </head>
 <body>
 
-	<input type="submit" value="New" id="submit">
-	<div id="ft_list"></div>
+	<div id="container">
+		<input type="submit" value="New" id="submit">
+		<div id="ft_list"></div>
+	</div>
 
 	</body>
 	<script type="text/javascript" src="todo.js"></script>
