@@ -30,7 +30,7 @@
 			else
 				balloon.style.backgroundColor = dir === 'up' ? "red" : "green";
 		};
-		const increaseSize = (balloon, dir) => {
+		const increaseSize = (balloon) => {
 			let height = balloon.offsetHeight;
 			height += 10;
 			balloon.style.height = height + "px";

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calc</title>
+	<style>
+		body {
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<input type="text" id="left">
+	<select id="operator">
+		<option value="plus">+</option>
+		<option value="min">-</option>
+		<option value="div">/</option>
+		<option value="mult">*</option>
+		<option value="mod">%</option>
+	</select>
+	<input type="text" id="right">
+	<input type="submit" class="text" value="Try me!" id="submit">
+
+	<script>
+		$(document).ready(function(){
+
+			function reminder () {
+			    console.log('Please use me...')
+			}
+
+			setInterval(function(){ reminder() }, 30000)
+
+			function isNormalInteger (str) {
+    			return /^[+]?\d+$/.test(str);
+			};
+
+			function calc (a, op, b) {
+				let res;
+				switch (op) {
+					case 'plus':
+						res = a + b;
+						break;
+					case 'min':
+						res = a - b;
+						break;
+					case 'mod':
+						res = a % b;
+						break;
+					case 'div':
+						res = a / b;
+						break;
+					case 'mult':
+						res = a * b;
+						break;
+				}
+				console.log(res);
+				alert(res);
+			};
+
+			$('#submit').click(function(){
+				let op = $('#operator option:selected').val();
+				let left = $('#left').val();
+				let a = parseInt(left, 10);
+				let right = $('#right').val();
+				let b = parseInt(right, 10);
+				if ((op === "div" || op === "mod") && b === 0) {
+					console.log('It’s over 9000!');
+					alert('It’s over 9000!');
+					return;
+				}
+				if (!isNormalInteger(left) || !isNormalInteger(right)) {
+					console.log('Error :(');
+					alert('Error :(');
+					return;
+				}
+				calc(a, op, b);
+			});
+		});
+	</script>
+
+	</body>
+</html>

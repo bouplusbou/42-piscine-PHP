@@ -5,7 +5,6 @@ let cookiesObj = {};
 if (document.cookie) {
 	cookiesObj = JSON.parse(document.cookie);
 	const timestamps = Object.keys(cookiesObj);
-	console.log(cookiesObj);
 	timestamps.forEach((timestamp) => {
 		let newContent = document.createTextNode(cookiesObj[timestamp]);
 		let newDiv = document.createElement("div");
@@ -37,10 +36,7 @@ submit.addEventListener("click", (event) => {
 
 list.addEventListener("click", (event) => {
 	if (confirm('Are you sure you want to delete this item?')) {
-		console.log(event.target.id);
-
 		document.getElementById(event.target.id).remove();
-		
 		cookiesObj = JSON.parse(document.cookie);
 		delete cookiesObj[event.target.id];
 		let cookiesString = JSON.stringify(cookiesObj)

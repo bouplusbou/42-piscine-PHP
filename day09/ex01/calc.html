@@ -30,7 +30,7 @@
 		}
 		setInterval(function(){ reminder() }, 30000)
 		const isNormalInteger = str => {
-    		return /^\+?(0|[1-9]\d*)$/.test(str);
+			return /^[+]?\d+$/.test(str);
 		};
 		const calc = (a, op, b) => {
 			let res;

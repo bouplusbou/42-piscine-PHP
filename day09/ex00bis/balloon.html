@@ -25,67 +25,42 @@
 	<script>
 		$(document).ready(function(){
 
+			function changeColor (dir) {
+				if ($('#balloon').css('backgroundColor') === "rgb(255, 0, 0)")
+					$('#balloon').css('backgroundColor', dir === 'up' ? "green" : "blue");
+				else if ($('#balloon').css('backgroundColor') === "rgb(0, 128, 0)")
+					$('#balloon').css('backgroundColor', dir === 'up' ? "blue" : "red");
+				else
+					$('#balloon').css('backgroundColor', dir === 'up' ? "red" : "green");
+			};
 
-		const changeColor = (balloon, dir) => {
-			if (balloon.style.backgroundColor === "red" || balloon.style.backgroundColor === "")
-				balloon.style.backgroundColor = dir === 'up' ? "green" : "blue";
-			else if (balloon.style.backgroundColor === "green")
-				balloon.style.backgroundColor = dir === 'up' ? "blue" : "red";
-			else
-				balloon.style.backgroundColor = dir === 'up' ? "red" : "green";
-		};
+			function increaseSize (balloon) {
+				balloon.height(balloon.height() + 10);
+				balloon.width(balloon.width() + 10);
+				if (balloon.height() > 420) {
+					balloon.height(200);
+					balloon.width(200);
+				}
+			};
 
-			(function( $ ){
-				$.fn.myfunction = function() {
-			      	alert('hello world');
-			     	return this;
-			   		}; 
-			})( jQuery );
+			function decreaseSize (balloon) {
+				if (balloon.height() > 200) {
+					balloon.height(balloon.height() - 5);
+					balloon.width(balloon.width() - 5);
+				}
+			};
 
-			myfunction();
-
-
-
+		
 			$('#balloon').click(function(){
-				increaseSize(event.currentTarget)
-				changeColor(event.currentTarget, "up")
+				increaseSize($('#balloon'))
+				changeColor("up")
 			});
 
 			$('#balloon').mouseleave(function(){
-				decreaseSize(event.currentTarget);
-				changeColor(event.currentTarget, "down")
+				decreaseSize($('#balloon'));
+				changeColor("down")
 			});
-		
-
-
-
-
-
 		});
-
-
-
-
-
-		const increaseSize = (balloon, dir) => {
-			let height = balloon.offsetHeight;
-			height += 10;
-			balloon.style.height = height + "px";
-			balloon.style.width = height + "px";
-			if (height > 420) {
-				balloon.style.height = "200px";
-				balloon.style.width = "200px";
-			}
-		};
-		const decreaseSize = (balloon) => {
-			let height = balloon.offsetHeight;
-			height -= 5;
-			if (height >= 200) {
-				balloon.style.height = height + "px";
-				balloon.style.width = height + "px";
-			}
-		};
-
 	</script>
 
 	</body>
